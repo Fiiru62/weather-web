@@ -1,0 +1,76 @@
+---
+// Header.astro
+---
+<header class="z-50 justify-between items-center h-16 py-6 px-10 fixed top-0 w-full flex">
+    <h1 class="text-3xl font-semibold">WEATHER</h1>
+    
+    <!-- contenedor buscador + botón -->
+    <div class="flex items-center gap-2 w-full max-w-md">
+        <!-- buscador de ciuad -->
+        <form id="search-form" class="w-full" onsubmit="handleSearch(event)">
+        <input
+            type="text"
+            id="city-input"
+            placeholder="Buscar ciudad..."
+            class="w-full px-4 py-2 rounded-full bg-white/20 text-black outline-none backdrop-blur-md focus:ring-2 focus:ring-white"
+        />
+        </form>
+
+        <!-- botón "Tu ubicación"-->
+        <button
+        id="geo-button"
+        class="whitespace-nowrap px-4 py-2 rounded-full bg-white/20 backdrop-blur-md hover:bg-white/30 transition outline-none focus:ring-2 focus:ring-white text-black"
+        >
+        Tu ubicación
+        </button>
+    </div>
+
+    <!-- cambiar unidades -->
+    <div class="relative">
+        <button id="toggle-menu" class="bg-white/20 text-black px-4 py-2 rounded-lg backdrop-blur hover:bg-white/30 transition">
+            Cambiar unidades
+          </button>
+        
+          <!-- menu desplegable -->
+          <div id="units-menu" class="absolute mt-2 p-4 bg-white/10 backdrop-blur-md rounded-lg shadow-lg text-white hidden">
+            <label class="block mb-2 text-black">
+              Presión:
+              <select id="unit-pressure" class="bg-white/20 rounded px-2 py-1 ml-2 text-black">
+                <option value="hPa">hPa</option>
+                <option value="Pa">Pa</option>
+                <option value="atm">atm</option>
+              </select>
+            </label>
+            <label class="block mb-2 text-black">
+              Temperatura:
+              <select id="unit-temp" class="bg-white/20 rounded px-2 py-1 ml-2 text-black">
+                <option value="C">°C</option>
+                <option value="F">°F</option>
+              </select>
+            </label>
+            <label class="block mb-2 text-black">
+              Viento:
+              <select id="unit-wind" class="bg-white/20 rounded px-2 py-1 ml-2 text-black">
+                <option value="km/h">km/h</option>
+                <option value="m/s">m/s</option>
+              </select>
+            </label>
+          </div>
+    </div>
+    
+  
+
+    <!-- <nav class="flex gap-4 text-2xl font-light">
+        <a href="/">Home</a>
+        <a href="/about">Nosotros</a>
+        <a href="/contact">Contacto</a>
+    </nav> -->
+
+    <script type="module" src="/public/scripts/userLocation.js"></script>
+
+    <style>
+      #city-input::placeholder{
+        color: black;
+      }
+    </style>
+</header>

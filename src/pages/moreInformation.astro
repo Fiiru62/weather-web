@@ -1,0 +1,96 @@
+---
+import Header from "../components/Header.astro"
+import BaseLayout from "../layouts/Layout.astro"
+import "../styles/global.css";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <BaseLayout>
+            <Header></Header>
+
+            <!-- cards con la informacion del clima -->
+            <section class="absolute top-32 inset-0 flex items-center justify-between m-0 p-0 cards w-auto max-h-auto z-10">
+                <!-- div con el grid -->
+                <div class="relative z-10 grid grid-cols-3 grid-rows-4 gap-4 sm:grid-cols-2 lg:grid-cols-3 p-6 max-w-4xl cards2">
+                
+                    <!-- ciudad -->
+                    <div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-span-2">
+                        <h3 class="text-xl font-bold mb-2">🌇 Ciudad</h3>
+                        <p id="clouds" class="text-2xl"></p>
+                    </div>
+                
+                    <!-- clima -->
+                    <div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md row-span-2 col-start-1 row-start-2 max-w-68 w-full">
+                        <h3 class="text-xl font-bold mb-2">Visibilidad</h3>
+                        <p id="visibility" class="text-2xl break-words"></p>
+                    </div>
+                
+                    <!-- humedad (más alta) -->
+                    <div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-span-2 col-start-2 row-start-3">
+                        <h3 class="text-xl font-bold mb-2">Amanecer</h3>
+                        <p id="sunrise" class="text-3xl"></p>
+                    </div>
+                
+                    <!-- Presión atmosférica -->
+                    <div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-span-2 col-start-1 row-start-4 cards-bloque">
+                        <h3 class="text-xl font-bold mb-2">Atardecer</h3>
+                        <p id="sunset" class="text-2xl">-</p>
+                    </div>
+                
+                    <!-- Sensación térmica (más ancha) -->
+                    <div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-start-2 row-start-2 cards-bloque">
+                        
+                    </div>
+                
+                    <!-- País -->
+                    <div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-start-3 row-start-2 cards-bloque card-country">
+                        
+                    </div>
+
+                    <!-- viento -->
+                    <div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-start-3 row-start-1">
+                        
+                    </div>
+
+                    
+                    <div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-start-3 row-start-4 hover:bg-white/20 transition duration-300">
+                        <a href="/" class="no-underline">
+                            <h3 class="text-3xl font-medium mb-2 no-underline text-center">Volver</h3>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- cards a la derecha -->
+            <section class="flex flex-col gap-4 p-6 items-end absolute top-20 right-20 hora-temp-section">
+                <!-- hora -->
+                <div id="feels-like" class="hora-temp">
+                    <h3 id="local-time" class="text-4xl font-bold mb-2"></h3>
+                    <p class="text-lg"></p>
+                </div>
+                <!-- temperatura -->
+                <div
+                    class="hora-temp">
+                    <h3 id="temp" class="text-4xl font-bold mb-2"></h3>
+                    <!-- <img src="/icons/thermometer-icon.svg" alt="Temperatura" class="w-8 h-8" /> -->
+                    <p ></p>
+                </div>
+            </section>
+        </BaseLayout>
+
+        
+
+        <!--! --------------------scripts-------------------- -->
+        <script type="module" src="/scripts/setBackground.js"></script>
+        <script type="module" src="/scripts/weather.js"></script>
+        <script type="module" src="/scripts/weatherMore.js"></script>
+    </body>
+</html>

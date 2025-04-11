@@ -1,0 +1,36 @@
+---
+import Header from '../components/Header.astro';
+import "../styles/global.css";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <div class="relative h-screen w-screen">
+      <!-- Fondo común -->
+    <section id="background-section" class="h-screen w-screen relative overflow-hidden">
+        <img
+          id="background-image"
+          src=""
+          alt="Imagen de fondo"
+          class="absolute inset-0 top-0 left-0 w-full h-full object-cover -z-1 transition-opacity duration-1000"
+        />
+        <!-- Contenido común -->
+        <Header />
+        <!-- Aquí se inyecta el contenido de cada página -->
+	</section>
+
+        <slot />
+      </section>
+    </div>
+
+    <!-- Scripts comunes -->
+    <script type="module" src="/scripts/setBackground.js"></script>
+    <script type="module" src="/scripts/weather.js"></script>
+  </body>
+</html>

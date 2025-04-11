@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+input::placeholder {
+    color: #fff;
+    opacity: 0.8;
+  }
+
+/*! ----------------------header responsive----------------------  */
+  @media (max-width: 1024px) {
+    header {
+      padding: 1rem 2rem; /* menos espacio en pantallas medianas */
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  
+    header h1 {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+  
+    header > .flex {
+      flex: 1 1 100%;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: stretch;
+      max-width: 100%;
+    }
+  
+    #city-input {
+      width: 100%;
+    }
+  
+    #geo-button {
+      width: 100%;
+    }
+  
+    #toggle-menu {
+      width: 100%;
+    }
+  
+    #units-menu {
+      position: static;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    header {
+      padding: 1rem;
+    }
+  
+    header h1 {
+      font-size: 1.5rem;
+    }
+  
+    #city-input,
+    #geo-button,
+    #toggle-menu {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  
+    #units-menu select {
+      width: 100%;
+      margin-top: 0.25rem;
+    }
+  
+    #units-menu label {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
+
+@media (max-width: 450px) {
+  header{
+    margin-top: -4%;
+  }
+}
+/*! --------------------------------------------  */
+
+/*! ---------------------index responsive----------------------  */
+/* Asegurar que las cards estén encima del fondo */
+section.absolute {
+  position: absolute;
+  z-index: 10; /* Mayor que el fondo */
+}
+
+#background-section {
+  position: absolute;
+  z-index: 0; /* Fondo detrás de las cards */
+}
+
+#background-image {
+  position: relative;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Imagen detrás de todo */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1024px) {
+  section.absolute {
+    top: 20rem;
+    padding: 1rem;
+  }
+  #background-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: 75%;
+  }
+  .hora-temp{
+    margin-right: -70%;
+    margin-top: -80%;
+    margin-bottom: -25%;
+  }
+  .cards{
+    margin-top: 10%;
+    height: 10%;
+  }
+  .cards2 h3 {
+    font-size: 20px;
+  }
+  .cards2 p{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  section.absolute {
+    margin-top: 45%;
+    padding: 1rem;
+  }
+  #background-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: 75%;
+  }
+  .hora-temp{
+    margin-right: -70%;
+  }
+  .cards{
+    height: 10%;
+  }
+  .cards2 h3 {
+    font-size: 12px;
+  }
+  .cards2 p{
+    font-size: 9px;
+  }
+  .cards2{
+    margin-bottom: 60%;
+    margin-left: -1%;
+    width: 80%;
+  }
+  .hora-temp-section div{
+    margin-top: -430%;
+    margin-bottom: 320%;
+  }
+}
+
+@media (max-width: 450px) {
+  section.absolute {
+    margin-top: 72%;
+    padding: 1rem;
+  }
+  #background-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: 75%;
+  }
+  .cards2{
+    padding: 5%;
+    margin-left: -6%;
+    width: 100vh;
+    margin-top: 10%;
+  }
+  .cards2 h3 {
+    font-size: 12px;
+  }
+  .cards2 p{
+    font-size: 15px;
+  }
+  .hora-temp-section{
+    margin-right: 4%;
+  }
+}
+
+@media (max-width: 400px) {
+  section.absolute {
+    margin-top: 60%;
+    padding: 1rem;
+  }
+  #background-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: 75%;
+  }
+  .cards2 div{
+    width: 100%;
+    height: 90%;
+    /* margin-left: -3%; */
+    margin-left: 0%;
+    margin-bottom: -10%;
+  }
+  .cards2 h3 {
+    font-size: 15px;
+  }
+  .cards2 p{
+    font-size: 12px;
+  }
+  .card-country{
+    display: none;
+  }
+}
+
+/*! ---------------------index responsive----------------------  */

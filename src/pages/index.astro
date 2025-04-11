@@ -1,0 +1,105 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Weather App</title>
+
+		<!-- Leaflet CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+	</head>
+	<body class="overflow-x-hidden">
+		<div class="relative">
+			<Header>
+			</Header>
+	
+
+			<!-- Imagen de fondo. Cambia en funcion a la hora -->
+			<section id="background-section" class="h-screen w-screen relative overflow-hidden">
+				<img id="background-image"
+					 src=""
+					 alt="Imagen de fondo"
+					 class="absolute inset-0 top-0 left-0 w-full h-full object-cover -z-1 transition-opacity duration-1000"
+				/>
+
+				<!-- cards con la informacion del clima -->
+				<section class="absolute top-32 inset-0 flex items-center justify-between m-0 p-0 cards w-auto max-h-auto z-10">
+					<!-- div con el grid -->
+					<div class="relative z-10 grid grid-cols-3 grid-rows-4 gap-4 sm:grid-cols-2 lg:grid-cols-3 p-6 max-w-4xl cards2">
+					
+						<!-- ciudad -->
+						<div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-span-2">
+							<h3 class="text-xl font-bold mb-2">🌇 Ciudad</h3>
+							<p id="city" class="text-2xl"></p>
+						</div>
+					
+						<!-- clima -->
+						<div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md row-span-2 col-start-1 row-start-2 max-w-68 w-full">
+							<h3 class="text-xl font-bold mb-2">🌤 Clima</h3>
+							<p id="weather" class="text-2xl break-words"></p>
+						</div>
+					
+						<!-- humedad (más alta) -->
+						<div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-span-2 col-start-2 row-start-3">
+							<h3 class="text-xl font-bold mb-2">💧 Humedad</h3>
+							<p id="humidity" class="text-3xl"></p>
+						</div>
+					
+						<!-- Presión atmosférica -->
+						<div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-span-2 col-start-1 row-start-4 cards-bloque">
+							<h3 class="text-xl font-bold mb-2">🌡 Presión atmosférica</h3>
+							<p id="pressure" class="text-2xl">-</p>
+						</div>
+					
+						<!-- Sensación térmica (más ancha) -->
+						<div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-start-2 row-start-2 cards-bloque">
+							<h3 class="text-xl font-bold mb-2">🤒 Sensación térmica</h3>
+							<p id="feels-like" class="text-2xl">-</p>
+						</div>
+					
+						<!-- País -->
+						<div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-start-3 row-start-2 cards-bloque card-country">
+							<h3 class="text-xl font-bold mb-2">🌍 País</h3>
+							<p id="country" class="text-2xl">-</p>
+						</div>
+
+						<!-- viento -->
+						<div class="bg-white/10 backdrop-blur-md text-black p-6 rounded-xl shadow-md col-start-3 row-start-1">
+							<h3 class="text-xl font-bold mb-2">💨 Viento</h3>
+							<p id="wind" class="text-2xl"></p>
+						</div>
+					</div>
+				</section>
+
+				<!-- cards a la derecha -->
+				<section class="flex flex-col gap-4 p-6 items-end absolute top-20 right-20 hora-temp-section">
+					<!-- hora -->
+					<div id="feels-like" class="hora-temp">
+						<h3 id="local-time" class="text-4xl font-bold mb-2"></h3>
+						<p class="text-lg"></p>
+					</div>
+					<!-- temperatura -->
+					<div
+						class="hora-temp">
+						<h3 id="temp" class="text-4xl font-bold mb-2"></h3>
+						<!-- <img src="/icons/thermometer-icon.svg" alt="Temperatura" class="w-8 h-8" /> -->
+						<p ></p>
+					</div>
+				</section>
+			</section>
+
+	
+		<!--! --------------------scripts-------------------- -->
+		<script type="module" src="/scripts/setBackground.js"></script>
+		<script type="module" src="/scripts/weather.js"></script>
+	</body>
+</html>
