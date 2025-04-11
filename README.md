@@ -12,4 +12,4 @@ Atardecer (12 am a 18 pm:
 Anochecer (18 pm a 6 am:
 ![captura1](https://github.com/user-attachments/assets/54a59f0d-58f6-4cdb-8efa-49b1fbef4bf1)
 
-
+También se pueden modificar las unidades de algunos de los parámetros, como por ejemplo, la temperatura (de °C a °F), la presión, etc.
